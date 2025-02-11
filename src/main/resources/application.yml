@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: seminar
+  profiles:
+    active: dev
+
+paths:
+  /upload:  # Your endpoint path
+    post:
+      consumes:
+        - multipart/form-data  # Important: Must include this
+      parameters:
+        - in: formData        # Indicates form data
+          name: file         # The name of the parameter (matches @RequestParam)
+          type: file         # Tells Swagger it's a file
+          required: true      # Whether the file is required
+          description: The file to upload
+      responses:
+        '200':
+          description: Successful upload
+        # ... other responses
