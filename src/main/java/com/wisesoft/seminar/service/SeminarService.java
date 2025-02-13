@@ -25,13 +25,6 @@ public class SeminarService {
     }
     public List<ScheduleModel> scheduleSeminar(MultipartFile file) throws IOException {
         try {
-            String fileName = file.getOriginalFilename();
-            if (fileName == null || !fileName.toLowerCase().endsWith(".txt")) {
-                return null;
-            }
-            if (reader.read(file).isEmpty()) {
-                return null;
-            }
             String startDate = reader.read(file).getFirst();
             List<SeminarTopic> topics = parseSeminarTopics.parseSeminarTopics(reader.read(file));
             List<SeminarDay> schedule = seminarScheduler.createScheduleSeminars(startDate, topics);
