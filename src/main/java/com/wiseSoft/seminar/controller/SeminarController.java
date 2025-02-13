@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.controller;
+package com.wisesoft.seminar.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.wiseSoft.seminar.model.ScheduleModel;
-import com.wiseSoft.seminar.model.SeminarDay;
-import com.wiseSoft.seminar.model.SeminarTopic;
-import com.wiseSoft.seminar.service.ParseSeminarTopicsService;
-import com.wiseSoft.seminar.service.PrintScheduleService;
-import com.wiseSoft.seminar.service.SeminarSchedulerService;
+import com.wisesoft.seminar.model.ScheduleModel;
+import com.wisesoft.seminar.model.SeminarDay;
+import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.service.ParseSeminarTopicsService;
+import com.wisesoft.seminar.service.PrintScheduleService;
+import com.wisesoft.seminar.service.SeminarSchedulerService;
 
 @RestController
 @RequestMapping("/api/reports")

@@ -1,13 +1,13 @@
-package com.wiseSoft.seminar.service;
+package com.wisesoft.seminar.service;
 
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.wiseSoft.seminar.model.SeminarDay;
-import com.wiseSoft.seminar.model.SeminarTopic;
-import com.wiseSoft.seminar.util.IncrementDate;
+import com.wisesoft.seminar.model.SeminarDay;
+import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.util.IncrementDate;
 
 @Service
 public class SeminarSchedulerService {

@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar;
+package com.wisesoft.seminar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

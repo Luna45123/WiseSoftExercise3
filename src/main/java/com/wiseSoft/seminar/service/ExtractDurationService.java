@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.service;
+package com.wisesoft.seminar.service;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

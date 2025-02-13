@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.model;
+package com.wisesoft.seminar.model;
 
 
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.service;
+package com.wisesoft.seminar.service;
 
 
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.wiseSoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.model.SeminarTopic;
 
 @Service
 public class AssignToSessionService {
