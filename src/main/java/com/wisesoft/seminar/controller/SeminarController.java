@@ -21,10 +21,17 @@ public class SeminarController {
     @SuppressWarnings("null")
     @PostMapping(value = "/upload", consumes = "multipart/form-data")
     public ResponseEntity<?> uploadTextFile(@RequestPart("file") MultipartFile file) throws IOException {
-        if (file.getContentType() == null || !file.getContentType().equals("text/plain")) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Only text files are allowed");
-            
+        try {
+            if (file.getContentType() == null || !file.getContentType().equals("text/plain")) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Only text files are allowed");
+                
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(seminarService.scheduleSeminar(file));
         }
-        return ResponseEntity.status(HttpStatus.OK).body(seminarService.scheduleSeminar(file));
+   
+         catch (Exception e) {
+           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+       
     }
 }

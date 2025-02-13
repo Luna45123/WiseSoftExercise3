@@ -31,7 +31,7 @@ public class SeminarService {
             List<ScheduleModel> scheduleModels = printSchedule.print(schedule);
             return scheduleModels;
         }catch(Exception e){
-            return null;
+            throw new IOException(e.getMessage());
         }
     }
 }

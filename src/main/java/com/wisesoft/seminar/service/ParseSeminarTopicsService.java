@@ -28,6 +28,8 @@ public class ParseSeminarTopicsService {
                     String title = titleBuilder.toString().trim();
 
                     topics.add(new SeminarTopic(title, duration));
+                }else{
+                    throw new IllegalArgumentException("Invalid format: " + line);
                 }
             }
         }
