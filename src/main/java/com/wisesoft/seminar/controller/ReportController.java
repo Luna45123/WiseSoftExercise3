@@ -12,7 +12,7 @@ import com.wisesoft.seminar.service.ReportService;
 
 
 @RestController
-@RequestMapping("/api/reports")
+@RequestMapping("/api/seminar")
 public class ReportController {
     private final ReportService reportService;
 

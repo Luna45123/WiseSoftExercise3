@@ -19,7 +19,7 @@ public class SeminarController {
     }
 
     @SuppressWarnings("null")
-    @PostMapping(value = "/upload", consumes = "multipart/form-data")
+    @PostMapping(value = "/uploadtxt", consumes = "multipart/form-data")
     public ResponseEntity<?> uploadTextFile(@RequestPart("file") MultipartFile file) throws IOException {
         try {
             if (file.getContentType() == null || !file.getContentType().equals("text/plain")) {
