@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.wisesoft.seminar.service.SeminarService;
 
 @RestController
-@RequestMapping("/api/reports")
+@RequestMapping("/api/seminar")
 public class SeminarController {
     private final SeminarService seminarService;
     
