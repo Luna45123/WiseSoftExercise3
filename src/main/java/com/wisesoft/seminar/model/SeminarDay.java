@@ -6,12 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class SeminarDay {
- 
-    private Long id;
-    
     private final LocalDate date;
 
     private final List<SeminarTopic> morningSession = new ArrayList<>();
@@ -50,14 +45,4 @@ public class SeminarDay {
     public int getMorningSessionTime(){
         return morningSession.stream().mapToInt(SeminarTopic::getDuration).sum();
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-  
 }

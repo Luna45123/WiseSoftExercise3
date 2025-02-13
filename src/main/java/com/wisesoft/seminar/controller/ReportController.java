@@ -22,7 +22,7 @@ public class ReportController {
     }
 
     @PostMapping("/schedule")
-    public ResponseEntity<?> downloadScheduleReport(@RequestBody List<Map<String, Object>> requestData) {
+    public ResponseEntity<?> scheduleReport(@RequestBody List<Map<String, Object>> requestData) {
         try {
             if (requestData.get(0).get("date") == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Date is required");
