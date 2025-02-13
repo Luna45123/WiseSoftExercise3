@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.seminar.model;
+package com.wiseSoft.seminar.model;
 
 
 public class SeminarTopic {

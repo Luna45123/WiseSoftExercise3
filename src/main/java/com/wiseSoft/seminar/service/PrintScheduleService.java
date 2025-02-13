@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.seminar.service;
+package com.wiseSoft.seminar.service;
 
 
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.wiseSoft.seminar.seminar.model.ScheduleModel;
-import com.wiseSoft.seminar.seminar.model.SeminarDay;
-import com.wiseSoft.seminar.seminar.model.SeminarTopic;
+import com.wiseSoft.seminar.model.ScheduleModel;
+import com.wiseSoft.seminar.model.SeminarDay;
+import com.wiseSoft.seminar.model.SeminarTopic;
 
 @Service
 public class PrintScheduleService {

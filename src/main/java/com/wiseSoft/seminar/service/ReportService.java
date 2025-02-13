@@ -1,12 +1,12 @@
-package com.wiseSoft.seminar.seminar.service;
+package com.wiseSoft.seminar.service;
 
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import com.wiseSoft.seminar.seminar.model.ScheduleModel;
-import com.wiseSoft.seminar.seminar.model.SeminarTopic;
+import com.wiseSoft.seminar.model.ScheduleModel;
+import com.wiseSoft.seminar.model.SeminarTopic;
 
 import java.io.InputStream;
 import java.util.HashMap;

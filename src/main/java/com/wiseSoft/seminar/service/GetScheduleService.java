@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.seminar.service;
+package com.wiseSoft.seminar.service;
 
 
 import java.time.LocalTime;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.wiseSoft.seminar.seminar.model.SeminarTopic;
-import com.wiseSoft.seminar.seminar.util.FormatTime;
+import com.wiseSoft.seminar.model.SeminarTopic;
+import com.wiseSoft.seminar.util.FormatTime;
 
 @Service
 public class GetScheduleService {

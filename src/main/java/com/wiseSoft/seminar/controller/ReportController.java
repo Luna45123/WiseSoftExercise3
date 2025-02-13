@@ -1,4 +1,4 @@
-package com.wiseSoft.seminar.seminar.controller;
+package com.wiseSoft.seminar.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lowagie.text.Document;
 import com.lowagie.text.pdf.PdfCopy;
 import com.lowagie.text.pdf.PdfReader;
-import com.wiseSoft.seminar.seminar.model.ScheduleModel;
-import com.wiseSoft.seminar.seminar.model.SeminarDay;
-import com.wiseSoft.seminar.seminar.model.SeminarTopic;
-import com.wiseSoft.seminar.seminar.service.ExtractDurationService;
-import com.wiseSoft.seminar.seminar.service.PrintScheduleService;
-import com.wiseSoft.seminar.seminar.service.ReportService;
-import com.wiseSoft.seminar.seminar.service.SeminarSchedulerService;
+import com.wiseSoft.seminar.model.ScheduleModel;
+import com.wiseSoft.seminar.model.SeminarDay;
+import com.wiseSoft.seminar.model.SeminarTopic;
+import com.wiseSoft.seminar.service.ExtractDurationService;
+import com.wiseSoft.seminar.service.PrintScheduleService;
+import com.wiseSoft.seminar.service.ReportService;
+import com.wiseSoft.seminar.service.SeminarSchedulerService;
 
 @RestController
 @RequestMapping("/api/reports")
