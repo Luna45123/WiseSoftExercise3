@@ -1,7 +1,0 @@
-server:
-  port: 9080
-
-spring:
-  config:
-    activate:
-      on-profile: sit
