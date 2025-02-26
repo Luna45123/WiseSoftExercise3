@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import com.wisesoft.seminar.model.ScheduleModel;
-import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.model.SeminarTopicModel;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -26,7 +26,7 @@ public class GenerateScheduleReportService {
 
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperStream);
 
-        List<SeminarTopic> topics = schedule.getSeminarTopic();
+        List<SeminarTopicModel> topics = schedule.getSeminarTopic();
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(topics);
 
         Map<String, Object> parameters = new HashMap<>();

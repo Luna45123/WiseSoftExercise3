@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-import com.wisesoft.seminar.model.SeminarDay;
-import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.model.SeminarDayModel;
+import com.wisesoft.seminar.model.SeminarTopicModel;
 import com.wisesoft.seminar.util.IncrementDate;
 
 @Service
@@ -24,16 +24,16 @@ public class SeminarSchedulerService {
 
 
 
-    public List<SeminarDay> createScheduleSeminars(String startDate, List<SeminarTopic> topics) {
-        List<SeminarDay> days = new ArrayList<>();
-        List<SeminarDay> overDay = new ArrayList<>();
+    public List<SeminarDayModel> createScheduleSeminars(String startDate, List<SeminarTopicModel> topics) {
+        List<SeminarDayModel> days = new ArrayList<>();
+        List<SeminarDayModel> overDay = new ArrayList<>();
         LocalDate date = LocalDate.parse(startDate);
         int morningMaxTime = 180;
         int afternoonMaxTime = 180;
         int maxDayTime = 420;
 
         while (!topics.isEmpty()) {
-            SeminarDay day = new SeminarDay(date);
+            SeminarDayModel day = new SeminarDayModel(date);
             assignToSession.assign(day.getMorningSession(), topics, morningMaxTime,"Lunch");
             assignToSession.assign(day.getAfternoonSession(), topics, afternoonMaxTime,"Networking Event");
             days.add(day);
@@ -48,12 +48,12 @@ public class SeminarSchedulerService {
 
 
         if (!overDay.isEmpty()) {
-            List<SeminarTopic> allSessions = new ArrayList<>();
+            List<SeminarTopicModel> allSessions = new ArrayList<>();
             allSessions.addAll(overDay.getFirst().getMorningSession());
             allSessions.addAll(overDay.getFirst().getAfternoonSession());
             removeSession.remove(overDay.getFirst());
 
-            for (SeminarDay seminarDay : days) {
+            for (SeminarDayModel seminarDay : days) {
                 int morningSessionTime = seminarDay.getMorningSessionTime();
                 int afternoonSessionTime = seminarDay.getAfternoonSessionTime();
                 int allSessionsSize = allSessions.size();

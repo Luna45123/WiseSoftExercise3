@@ -1,6 +1,6 @@
 package com.wisesoft.seminar.model;
 
-public class Input {
+public class InputModel {
     private String topic;
 
     public String getTopic() {

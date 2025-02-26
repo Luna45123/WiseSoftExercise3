@@ -4,13 +4,13 @@ import java.util.List;
 
 public class ScheduleModel {
     private String date;
-    List<SeminarTopic> seminarTopic;
+    List<SeminarTopicModel> seminarTopic;
 
-    public List<SeminarTopic> getSeminarTopic() {
+    public List<SeminarTopicModel> getSeminarTopic() {
         return seminarTopic;
     }
 
-    public void setSeminarTopic(List<SeminarTopic> seminarTopic) {
+    public void setSeminarTopic(List<SeminarTopicModel> seminarTopic) {
         this.seminarTopic = seminarTopic;
     }
 

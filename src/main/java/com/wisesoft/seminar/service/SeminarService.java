@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.wisesoft.seminar.model.ScheduleModel;
-import com.wisesoft.seminar.model.SeminarDay;
-import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.model.SeminarDayModel;
+import com.wisesoft.seminar.model.SeminarTopicModel;
 
 @Service
 public class SeminarService {
@@ -27,8 +27,8 @@ public class SeminarService {
     public List<ScheduleModel> scheduleSeminar(MultipartFile file) throws IOException {
         try {
             String startDate = reader.read(file).getFirst();
-            List<SeminarTopic> topics = parseSeminarTopics.parseSeminarTopics(reader.read(file));
-            List<SeminarDay> schedule = seminarScheduler.createScheduleSeminars(startDate, topics);
+            List<SeminarTopicModel> topics = parseSeminarTopics.parseSeminarTopics(reader.read(file));
+            List<SeminarDayModel> schedule = seminarScheduler.createScheduleSeminars(startDate, topics);
             List<ScheduleModel> scheduleModels = printSchedule.getSchedule(schedule);
             return scheduleModels;
         }catch(Exception e){

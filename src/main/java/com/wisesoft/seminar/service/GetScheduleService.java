@@ -7,13 +7,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.wisesoft.seminar.model.ScheduleModel;
-import com.wisesoft.seminar.model.SeminarDay;
-import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.model.SeminarDayModel;
+import com.wisesoft.seminar.model.SeminarTopicModel;
 import com.wisesoft.seminar.util.FormatTime;
 
 @Service
 public class GetScheduleService {
-    public List<ScheduleModel> getSchedule(List<SeminarDay> schedule) {
+    public List<ScheduleModel> getSchedule(List<SeminarDayModel> schedule) {
         String dayText = "Day ";
         String lunchText = "Lunch";
         String networkingEventText = "Networking Event";
@@ -21,24 +21,24 @@ public class GetScheduleService {
         List<ScheduleModel> scheduleModels = new ArrayList<>();
 
         for (int i = 0; i < schedule.size(); i++) {
-            List<SeminarTopic> allTopics = new ArrayList<>();
+            List<SeminarTopicModel> allTopics = new ArrayList<>();
             ScheduleModel scheduleModel = new ScheduleModel();
-            SeminarDay day = schedule.get(i);
+            SeminarDayModel day = schedule.get(i);
             LocalTime time = LocalTime.of(9, 0);
-            List<SeminarTopic> morningSession = new ArrayList<>(day.getMorningSession());
+            List<SeminarTopicModel> morningSession = new ArrayList<>(day.getMorningSession());
             morningSession.add(
-                    new SeminarTopic(lunchText, 240 - morningSession.stream().mapToInt(SeminarTopic::getDuration).sum()));
+                    new SeminarTopicModel(lunchText, 240 - morningSession.stream().mapToInt(SeminarTopicModel::getDuration).sum()));
 
-            for (SeminarTopic topic : morningSession) {
+            for (SeminarTopicModel topic : morningSession) {
                 topic.setTime(FormatTime.formatTime(time));
                 time = time.plusMinutes(topic.getDuration());
             }
 
             time = LocalTime.of(13, 0);
-            List<SeminarTopic> afternoonSession = new ArrayList<>(day.getAfternoonSession());
-            afternoonSession.add(new SeminarTopic(networkingEventText, 0));
+            List<SeminarTopicModel> afternoonSession = new ArrayList<>(day.getAfternoonSession());
+            afternoonSession.add(new SeminarTopicModel(networkingEventText, 0));
 
-            for (SeminarTopic topic : afternoonSession) {
+            for (SeminarTopicModel topic : afternoonSession) {
                 topic.setTime(FormatTime.formatTime(time));
                 time = time.plusMinutes(topic.getDuration());
             }

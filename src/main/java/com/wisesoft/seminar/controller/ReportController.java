@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wisesoft.seminar.model.Input;
+import com.wisesoft.seminar.model.InputModel;
 import com.wisesoft.seminar.service.ReportService;
 
 
@@ -24,7 +24,7 @@ public class ReportController {
     }
 
     @PostMapping("/schedule")
-    public ResponseEntity<?> scheduleReport(@RequestBody List<Input> requestData) {
+    public ResponseEntity<?> scheduleReport(@RequestBody List<InputModel> requestData) {
         try {
             if (requestData.get(0).getTopic() == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Date is required");

@@ -8,13 +8,13 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Service;
 
-import com.wisesoft.seminar.model.SeminarTopic;
+import com.wisesoft.seminar.model.SeminarTopicModel;
 
 @Service
 public class ParseSeminarTopicsService {
     private static final Pattern DURATION_PATTERN = Pattern.compile("\\s(\\d+)min$");
-    public List<SeminarTopic> parseSeminarTopics(List<String> input) {
-        List<SeminarTopic> topics = new ArrayList<>();
+    public List<SeminarTopicModel> parseSeminarTopics(List<String> input) {
+        List<SeminarTopicModel> topics = new ArrayList<>();
 
         for (int i = 1; i < input.size(); i++) {
             String line = input.get(i).trim();
@@ -27,7 +27,7 @@ public class ParseSeminarTopicsService {
                     titleBuilder.setLength(titleBuilder.length() - matcher.group(0).length());
                     String title = titleBuilder.toString().trim();
 
-                    topics.add(new SeminarTopic(title, duration));
+                    topics.add(new SeminarTopicModel(title, duration));
                 }else{
                     throw new IllegalArgumentException("Invalid format: " + line);
                 }

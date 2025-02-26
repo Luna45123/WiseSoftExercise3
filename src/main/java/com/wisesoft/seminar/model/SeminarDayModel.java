@@ -6,14 +6,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeminarDay {
+public class SeminarDayModel {
     private final LocalDate date;
 
-    private final List<SeminarTopic> morningSession = new ArrayList<>();
-    private final List<SeminarTopic> afternoonSession = new ArrayList<>();
+    private final List<SeminarTopicModel> morningSession = new ArrayList<>();
+    private final List<SeminarTopicModel> afternoonSession = new ArrayList<>();
     private String datePattern = "dd/MM/";
 
-    public SeminarDay(LocalDate date) {
+    public SeminarDayModel(LocalDate date) {
         this.date = date;
     }
 
@@ -22,27 +22,27 @@ public class SeminarDay {
         return date.format(DateTimeFormatter.ofPattern(datePattern)) + buddhistYear;
     }
 
-    public List<SeminarTopic> getMorningSession() {
+    public List<SeminarTopicModel> getMorningSession() {
         return morningSession;
     }
 
-    public List<SeminarTopic> getAfternoonSession() {
+    public List<SeminarTopicModel> getAfternoonSession() {
         return afternoonSession;
     }
 
-    public void addAfternoonSession(SeminarTopic seminarTopic){
+    public void addAfternoonSession(SeminarTopicModel seminarTopic){
         afternoonSession.add(seminarTopic);
     }
 
-    public void addMorningSession(SeminarTopic seminarTopic){
+    public void addMorningSession(SeminarTopicModel seminarTopic){
         morningSession.add(seminarTopic);
     }
 
     public int getAfternoonSessionTime(){
-        return afternoonSession.stream().mapToInt(SeminarTopic::getDuration).sum();
+        return afternoonSession.stream().mapToInt(SeminarTopicModel::getDuration).sum();
     }
 
     public int getMorningSessionTime(){
-        return morningSession.stream().mapToInt(SeminarTopic::getDuration).sum();
+        return morningSession.stream().mapToInt(SeminarTopicModel::getDuration).sum();
     }
 }

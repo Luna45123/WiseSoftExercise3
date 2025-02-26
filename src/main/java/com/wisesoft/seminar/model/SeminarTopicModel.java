@@ -1,13 +1,13 @@
 package com.wisesoft.seminar.model;
 
 
-public class SeminarTopic {
+public class SeminarTopicModel {
 
     private final String title;
     private final int duration;
     private String time;
 
-    public SeminarTopic(String title, int duration) {
+    public SeminarTopicModel(String title, int duration) {
         this.title = title;
         this.duration = duration;
     }
