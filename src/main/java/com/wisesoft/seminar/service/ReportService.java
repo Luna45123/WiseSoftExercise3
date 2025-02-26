@@ -22,7 +22,6 @@ public class ReportService {
     private final GenerateScheduleReportService reportService;
     private final GetScheduleService printSchedule;
     private final SeminarSchedulerService seminarScheduler;
-    private static final String DURATION_PATTERN = "\\s(\\d+)min$";
 
     public ReportService(GenerateScheduleReportService reportService,
             GetScheduleService printSchedule,
@@ -32,7 +31,7 @@ public class ReportService {
         this.seminarScheduler = seminarScheduler;
     }
 
-    public byte[] downloadScheduleReport(List<InputModel> requestData) {
+    public byte[] downloadScheduleReport(List<SeminarTopicModel> requestData) {
         try {
             // Extract startDate from JSON
             String startDate = (String) requestData.get(0).getTopic();
@@ -41,14 +40,10 @@ public class ReportService {
             List<SeminarTopicModel> topics = requestData.stream()
                     .skip(1)
                     .map(item -> {
-                        String title = (String) item.getTopic();
-                        Pattern PATTERN = Pattern.compile(DURATION_PATTERN);
-                        Matcher matcher = PATTERN.matcher(title);
-                        int duration = 0;
-                        if (matcher.find()) {
-                            duration = Integer.parseInt(matcher.group(1));
-                        }
-                        return new SeminarTopicModel(title.replaceAll(DURATION_PATTERN, ""), duration);
+                        String topic = (String) item.getTopic();
+                        int duration = (Integer) item.getDuration();
+                        
+                        return new SeminarTopicModel(topic, duration);
                     })
                     .collect(Collectors.toList());
 

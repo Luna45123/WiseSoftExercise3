@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wisesoft.seminar.model.InputModel;
+import com.wisesoft.seminar.model.SeminarTopicModel;
 import com.wisesoft.seminar.service.ReportService;
 
 
@@ -23,7 +24,7 @@ public class ReportController {
     }
 
     @PostMapping("/schedule")
-    public ResponseEntity<?> scheduleReport(@RequestBody List<InputModel> requestData) {
+    public ResponseEntity<?> scheduleReport(@RequestBody List<SeminarTopicModel> requestData) {
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Content-Disposition", "attachment; filename=schedule_report.pdf");

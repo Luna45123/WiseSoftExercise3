@@ -3,17 +3,17 @@ package com.wisesoft.seminar.model;
 
 public class SeminarTopicModel {
 
-    private final String title;
+    private final String topic;
     private final int duration;
     private String time;
 
-    public SeminarTopicModel(String title, int duration) {
-        this.title = title;
+    public SeminarTopicModel(String topic, int duration) {
+        this.topic = topic;
         this.duration = duration;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTopic() {
+        return topic;
     }
 
     public int getDuration() {
@@ -27,5 +27,9 @@ public class SeminarTopicModel {
     public void setTime(String time) {
         this.time = time;
     }
+
+
+
+  
     
 }

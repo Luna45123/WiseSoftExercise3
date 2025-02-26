@@ -6,7 +6,7 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
-		<field name="title" class="java.lang.String"/>
+		<field name="topic" class="java.lang.String"/>
 		<field name="duration" class="java.lang.Integer"/>
 		<field name="time" class="java.lang.String"/>
 	</subDataset>
@@ -98,7 +98,7 @@
 							<textElement verticalAlignment="Middle">
 								<paragraph leftIndent="3"/>
 							</textElement>
-							<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+							<textFieldExpression><![CDATA[$F{topic}]]></textFieldExpression>
 						</textField>
 						<textField>
 							<reportElement x="260" y="0" width="60" height="30" uuid="a26c4559-62b1-4563-875f-cbb91c120d6a">
