@@ -5,15 +5,12 @@ import org.springframework.stereotype.Service;
 import com.lowagie.text.Document;
 import com.lowagie.text.pdf.PdfCopy;
 import com.lowagie.text.pdf.PdfReader;
-import com.wisesoft.seminar.model.InputModel;
 import com.wisesoft.seminar.model.ScheduleModel;
 import com.wisesoft.seminar.model.SeminarDayModel;
 import com.wisesoft.seminar.model.SeminarTopicModel;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service

@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.wisesoft.seminar.model.InputModel;
 import com.wisesoft.seminar.model.SeminarTopicModel;
 import com.wisesoft.seminar.service.ReportService;
 
