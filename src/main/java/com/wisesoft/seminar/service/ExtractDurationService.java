@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ExtractDurationService {
+
     public int extractDuration(String title) {
         Pattern DURATION_PATTERN = Pattern.compile("\\s(\\d+)min$");
         Matcher matcher = DURATION_PATTERN.matcher(title);

@@ -46,7 +46,6 @@ public class GetScheduleService {
             allTopics.addAll(afternoonSession);
             scheduleModel.setSeminarTopic(allTopics);
             scheduleModel.setDate(dayText + (i + 1) + dateSpace + day.getFormattedDate());
-
             scheduleModels.add(scheduleModel);
         }
 
