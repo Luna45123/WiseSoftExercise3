@@ -25,10 +25,6 @@ public class ReportController {
     @PostMapping("/schedule")
     public ResponseEntity<?> scheduleReport(@RequestBody List<InputModel> requestData) {
         try {
-            if (requestData.get(0).getTopic() == null) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Date is required");
-                
-            }
             HttpHeaders headers = new HttpHeaders();
             headers.add("Content-Disposition", "attachment; filename=schedule_report.pdf");
             return new ResponseEntity<>(reportService.downloadScheduleReport(requestData), headers, HttpStatus.OK);
