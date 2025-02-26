@@ -12,23 +12,24 @@ import com.wisesoft.seminar.model.SeminarTopic;
 public class SeminarService {
 
     private final SeminarSchedulerService seminarScheduler;
-    private final PrintScheduleService printSchedule;
+    private final GetScheduleService printSchedule;
     private final ParseSeminarTopicsService parseSeminarTopics;
     private final ReaderFileService reader;
 
-    public SeminarService(SeminarSchedulerService seminarScheduler, PrintScheduleService printSchedule,
+    public SeminarService(SeminarSchedulerService seminarScheduler, GetScheduleService printSchedule,
             ParseSeminarTopicsService parseSeminarTopics, ReaderFileService reader) {
         this.seminarScheduler = seminarScheduler;
         this.printSchedule = printSchedule;
         this.parseSeminarTopics = parseSeminarTopics;
         this.reader = reader;
     }
+    
     public List<ScheduleModel> scheduleSeminar(MultipartFile file) throws IOException {
         try {
             String startDate = reader.read(file).getFirst();
             List<SeminarTopic> topics = parseSeminarTopics.parseSeminarTopics(reader.read(file));
             List<SeminarDay> schedule = seminarScheduler.createScheduleSeminars(startDate, topics);
-            List<ScheduleModel> scheduleModels = printSchedule.print(schedule);
+            List<ScheduleModel> scheduleModels = printSchedule.getSchedule(schedule);
             return scheduleModels;
         }catch(Exception e){
             throw new IOException(e.getMessage());

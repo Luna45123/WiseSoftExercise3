@@ -4,25 +4,25 @@ import org.springframework.stereotype.Service;
 import com.lowagie.text.Document;
 import com.lowagie.text.pdf.PdfCopy;
 import com.lowagie.text.pdf.PdfReader;
+import com.wisesoft.seminar.model.Input;
 import com.wisesoft.seminar.model.ScheduleModel;
 import com.wisesoft.seminar.model.SeminarDay;
 import com.wisesoft.seminar.model.SeminarTopic;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
 public class ReportService {
 
     private final GenerateScheduleReportService reportService;
-    private final PrintScheduleService printSchedule;
+    private final GetScheduleService printSchedule;
     private final SeminarSchedulerService seminarScheduler;
     private final ExtractDurationService extractDuration;
 
     public ReportService(GenerateScheduleReportService reportService,
-            PrintScheduleService printSchedule,
+            GetScheduleService printSchedule,
             SeminarSchedulerService seminarScheduler,
             ExtractDurationService extractDuration) {
         this.reportService = reportService;
@@ -31,23 +31,23 @@ public class ReportService {
         this.extractDuration = extractDuration;
     }
 
-    public byte[] downloadScheduleReport(List<Map<String, Object>> requestData) {
+    public byte[] downloadScheduleReport(List<Input> requestData) {
          try {
             //Extract startDate from JSON
-            String startDate = (String) requestData.get(0).get("date");
+            String startDate = (String) requestData.get(0).getTopic();
 
             //Extract Seminar Topics from JSON
             List<SeminarTopic> topics = requestData.stream()
                     .skip(1)
                     .map(item -> {
-                        String title = (String) item.get("topic");
+                        String title = (String) item.getTopic();
                         int duration = extractDuration.extractDuration(title);
                         return new SeminarTopic(title.replaceAll("\\s*\\d+min$", ""), duration);
                     })
                     .collect(Collectors.toList());
 
             List<SeminarDay> schedules = seminarScheduler.createScheduleSeminars(startDate, topics);
-            List<ScheduleModel> scheduleModels = printSchedule.print(schedules);
+            List<ScheduleModel> scheduleModels = printSchedule.getSchedule(schedules);
 
             //Combine multiple PDFs
             ByteArrayOutputStream mergedPdfOutputStream = new ByteArrayOutputStream();
